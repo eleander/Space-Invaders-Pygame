@@ -191,6 +191,10 @@ while running:
         fire_bullet(bulletX, bulletY)
         bulletY += bulletY_change
 
+    # Random code to test git
+    # Random code to test git2
+
+
     # Display player and score
     player(playerX, playerY)
     show_score(textX,textY)

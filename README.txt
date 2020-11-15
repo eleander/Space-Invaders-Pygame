@@ -6,4 +6,4 @@ Items learnt include = game loops, player movement, enemy movement and showing i
 Changes were made to to the code used in the above video in order to improve frame rate
 Additional comments were added in order to improve understanding of Pygame
 
-Additional info taken from PyGame documentation https://www.pygame.org/docs/
+Additional info taken from PyGame documentation: https://www.pygame.org/docs/

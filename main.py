@@ -13,16 +13,16 @@ height = 600
 screen = pygame.display.set_mode((width, height))
 
 # Background
-background = pygame.image.load("background.png")
+background = pygame.image.load("Images/background.png")
 
 # Background Music
-mixer.music.load("arcade_music_loop.wav")
+mixer.music.load("Sound/arcade_music_loop.wav")
 mixer.music.play(-1)
 
 
 # Title and Icon
-pygame.display.set_caption("Space Invaders")
-icon = pygame.image.load('ufo.png')
+pygame.display.set_caption("Images/Space Invaders")
+icon = pygame.image.load("Images/ufo.png")
 pygame.display.set_icon(icon)
 
 # Speed of player and enemy
@@ -47,7 +47,7 @@ def game_over_text():
 
 
 # Player
-playerImg = pygame.image.load('space_invaders.png')
+playerImg = pygame.image.load("Images/space_invaders.png")
 playerX = width
 playerY = height-(1.5*64)
 playerX_change = 0
@@ -65,7 +65,7 @@ def player(x,y):
 # Bullet
 # "ready" You can't see the bullet on the screen
 # "fire" The bullet is moving 
-bulletImg = pygame.image.load('bullet.png')
+bulletImg = pygame.image.load("Images/bullet.png")
 bulletX = 0
 bulletY = 480
 bulletX_change = 0
@@ -88,7 +88,7 @@ enemyY_change = []
 num_of_enemies = 10
 
 for i in range(num_of_enemies):
-    enemyImg.append(pygame.image.load('ufo.png'))
+    enemyImg.append(pygame.image.load("Images/ufo.png"))
     enemyX.append(random.randint(0,width-64))
     enemyY.append(random.randint(0, height/4))
     enemyX_change.append(speedX)
@@ -135,7 +135,7 @@ while running:
             if event.key == pygame.K_SPACE and bullet_state =="ready":
                 bulletX = playerX
                 fire_bullet(bulletX,bulletY)
-                bullet_sound = mixer.Sound("laser.wav")
+                bullet_sound = mixer.Sound("Sound/laser.wav")
                 bullet_sound.play()
         # Unpress Key
         if event.type == pygame.KEYUP and (event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT):
@@ -172,7 +172,7 @@ while running:
         # Collision
         collision = is_collision(enemyX[i], enemyY[i], bulletX, bulletY)
         if collision:
-            explosion_sound = mixer.Sound("explosion.wav")
+            explosion_sound = mixer.Sound("Sound/explosion.wav")
             explosion_sound.play()
             bulletY = 500
             bullet_state = "ready"
@@ -190,9 +190,6 @@ while running:
     if bullet_state == "fire":
         fire_bullet(bulletX, bulletY)
         bulletY += bulletY_change
-
-    # Random code to test git
-    # Random code to test git2
 
 
     # Display player and score

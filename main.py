@@ -22,7 +22,6 @@ background = pygame.image.load("Images/background.png")
 mixer.music.load("Sound/arcade_music_loop.wav")
 mixer.music.play(-1)
 
-
 # Title and Icon
 pygame.display.set_caption("Images/Space Invaders")
 icon = pygame.image.load("Images/ufo.png")
@@ -62,7 +61,7 @@ enemy_img = pygame.image.load("Images/ufo.png")
 enemies = []
 num_of_enemies = 10
 for i in range(num_of_enemies):
-    enemies.append(Enemy(random.randint(0,width-64),random.randint(0,height/4),speedX,40))
+    enemies.append(Enemy(random.randint(0,width-64), random.randint(0,height/4), speedX,40))
 
 # Clock to enable smooth movement
 clock = pygame.time.Clock()
@@ -94,7 +93,7 @@ while running:
         # Quit game condition
         if event.type == pygame.QUIT:
             running = False
-        # Key strokes to control player movement 
+        # Key strokes to control player movement and firing of the bullet
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 player.x_change = -speedX
@@ -137,7 +136,7 @@ while running:
             enemies[i].y += enemies[i].y_change
             enemies[i].x_change = -speedX
 
-        # Collision
+        # Collision detection of enemy and bullet
         collision = is_collision(enemies[i].x, enemies[i].y, bullet.x, bullet.y)
         if collision:
             explosion_sound = mixer.Sound("Sound/explosion.wav")

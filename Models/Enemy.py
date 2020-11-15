@@ -6,11 +6,5 @@ class Enemy(object):
         self.x_change = x_change
         self.y_change = y_change
 
-    # Displays the player at specified playerX and playerY
-    # x++ = move right
-    # x-- = move left
-    # y-- = move up 
-    # y++ = move down 
-    # Top left of screen is (0,0)
     def draw(self, enemy_img, screen):
         screen.blit(enemy_img, (self.x, self.y))
